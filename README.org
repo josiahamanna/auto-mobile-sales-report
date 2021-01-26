@@ -1,6 +1,9 @@
-* Automobile Sales Report
+* *Automobile Sales Report*
 ** How to Run this project?
 1. Clone this repository.
+  #+begin_src shell
+     git clone https://github.com/nissi-shalom/auto-mobile-sales-report.git
+  #+end_src
 2. Change working directory.
   #+begin_src shell
     cd auto-mobile-sales-report
@@ -9,7 +12,7 @@
   #+begin_src shell
     npm install
   #+end_src
-4. Run node project
+4. Run node project.
   #+begin_src shell
     sails lift
   #+end_src
@@ -17,7 +20,7 @@
 + Endpoint: =/upload-file=
 + Method: =POST=
 ** Problem 1
-+ Statement: *Total Number of Black cars sold from Zone A & C*
++ Statement: *Total Number of Black cars sold from Zone A & C.*
 + Endpoint: =/total-vehicles-sold=
 + Method: =GET=
 + Query parameter: ex: =?zones=A&C&colors=Black=
@@ -32,7 +35,7 @@
   }
 #+end_src
 ** Problem 2
-+ Statement: *Number of vehicles sold above the average sale value of a car. (Average sale value= {No.of vehicles sold  *  Sales price}/ Total no.of vehicles sold)*
++ Statement: *Number of vehicles sold above the average sale value of a car. (Average sale value= {No.of vehicles sold  *  Sales price}/ Total no.of vehicles sold).*
 + Endpoint: =/average-sale-value=
 + Method: =GET=
 + Sample Response: 
@@ -120,9 +123,9 @@
 #+end_src
 ** Problem 3
 + Statement:
-  - *Provide data for Bar graph representing White car sales across the months that are above the average sales value for the respective months*
-  - *Eg: Average sales value of a car in January is say $10,00,000. Populate the number of cars sold above this price for Jan*
-  - *Eg: Average sales value of a car in February is say $8,00,000. Populate the number of cars sold above this price for Feb*
+  - *Provide data for Bar graph representing White car sales across the months that are above the average sales value for the respective months.*
+  - *Eg: Average sales value of a car in January is say $10,00,000. Populate the number of cars sold above this price for Jan.*
+  - *Eg: Average sales value of a car in February is say $8,00,000. Populate the number of cars sold above this price for Feb.*
 |----------+---|
 | January  |   |
 |----------+---|
@@ -163,7 +166,7 @@
 #+end_src
 ** Problem 4
 + Statement:
-  - *City wise sales trend for Maruti Suzuki Cars from January to May*
+  - *City wise sales trend for Maruti Suzuki Cars from January to May.*
   - Example:
 |----------+-------+--------+--------+-----------+--------+-----|
 |          | Jammu | Bhopal | Mumbai | Hyderabad | Nagpur | ... |
