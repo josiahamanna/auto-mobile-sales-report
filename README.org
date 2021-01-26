@@ -1,0 +1,22 @@
+* Automobile Sails Report
+** How to Run this project
+1. Clone this repository.
+2. Change working directory.
+  #+begin_src shell
+    cd auto-mobile-sales-report
+  #+end_src
+3. Install node dependencies.
+  #+begin_src shell
+    npm install
+  #+end_src
+4. Run node project
+  #+begin_src shell
+    sails lift
+  #+end_src
+** Uploading XLXS file
++ Endpoint: =/upload-file=
++ Method: =POST=
+** Problem 1
++ Statement: *Total Number of Black cars sold from Zone A & C*
++ Endpoint: =/total-vehicles-sold=
++ Query parameter: ex: =?zones=A&C&colors=Black=
