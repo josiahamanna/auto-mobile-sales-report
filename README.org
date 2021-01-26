@@ -1,5 +1,5 @@
 * Automobile Sails Report
-** How to Run this project
+** How to Run this project?
 1. Clone this repository.
 2. Change working directory.
   #+begin_src shell
@@ -125,9 +125,13 @@
   - *Eg: Average sales value of a car in February is say $8,00,000. Populate the number of cars sold above this price for Feb*
 |----------+---|
 | January  |   |
+|----------+---|
 | February |   |
+|----------+---|
 | March    |   |
+|----------+---|
 | April    |   |
+|----------+---|
 | May      |   |
 |----------+---|
 
