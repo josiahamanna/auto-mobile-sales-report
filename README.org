@@ -1,4 +1,4 @@
-* Automobile Sails Report
+* Automobile Sales Report
 ** How to Run this project?
 1. Clone this repository.
 2. Change working directory.
