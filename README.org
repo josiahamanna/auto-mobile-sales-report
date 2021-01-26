@@ -19,4 +19,208 @@
 ** Problem 1
 + Statement: *Total Number of Black cars sold from Zone A & C*
 + Endpoint: =/total-vehicles-sold=
++ Method: =GET=
 + Query parameter: ex: =?zones=A&C&colors=Black=
++ Sample Response: 
+#+begin_src js
+  {
+      "cities": [
+          "Bhopal",
+          "Bangalore"
+      ],
+      "numberOfVehiclesSold": 293
+  }
+#+end_src
+** Problem 2
++ Statement: *Number of vehicles sold above the average sale value of a car. (Average sale value= {No.of vehicles sold  *  Sales price}/ Total no.of vehicles sold)*
++ Endpoint: =/average-sale-value=
++ Method: =GET=
++ Sample Response: 
+#+begin_src js
+    {
+      "status": 200,
+      "data": [
+          {
+              "vehicle": "Ritz",
+              "aboveAverageSaleCount": 79,
+              "averageSaleValue": "1340033.04"
+          },
+          {
+              "vehicle": "Swift",
+              "aboveAverageSaleCount": 32,
+              "averageSaleValue": "1018593.86"
+          },
+          {
+              "vehicle": "XUV 300",
+              "aboveAverageSaleCount": 57,
+              "averageSaleValue": "1299140.99"
+          },
+          {
+              "vehicle": "TUV 300",
+              "aboveAverageSaleCount": 82,
+              "averageSaleValue": "1504949.43"
+          },
+          {
+              "vehicle": "Celerio",
+              "aboveAverageSaleCount": 208,
+              "averageSaleValue": "2692820.05"
+          },
+          {
+              "vehicle": "Creta",
+              "aboveAverageSaleCount": 72,
+              "averageSaleValue": "1301293.49"
+          },
+          {
+              "vehicle": "Scorpio",
+              "aboveAverageSaleCount": 173,
+              "averageSaleValue": "2131486.12"
+          },
+          {
+              "vehicle": "Baleno",
+              "aboveAverageSaleCount": 211,
+              "averageSaleValue": "2081283.21"
+          },
+          {
+              "vehicle": "Dzire",
+              "aboveAverageSaleCount": 263,
+              "averageSaleValue": "2524493.08"
+          },
+          {
+              "vehicle": "KUV 300",
+              "aboveAverageSaleCount": 152,
+              "averageSaleValue": "2100897.57"
+          },
+          {
+              "vehicle": "Santro",
+              "aboveAverageSaleCount": 158,
+              "averageSaleValue": "2004394.14"
+          },
+          {
+              "vehicle": "Venue",
+              "aboveAverageSaleCount": 124,
+              "averageSaleValue": "1856093.42"
+          },
+          {
+              "vehicle": "Verna",
+              "aboveAverageSaleCount": 18,
+              "averageSaleValue": "1515552.83"
+          },
+          {
+              "vehicle": "Brezza",
+              "aboveAverageSaleCount": 121,
+              "averageSaleValue": "1898392.78"
+          },
+          {
+              "vehicle": "Fortuner",
+              "aboveAverageSaleCount": 130,
+              "averageSaleValue": "1945219.72"
+          }
+      ]
+  }
+#+end_src
+** Problem 3
++ Statement:
+  - *Provide data for Bar graph representing White car sales across the months that are above the average sales value for the respective months*
+  - *Eg: Average sales value of a car in January is say $10,00,000. Populate the number of cars sold above this price for Jan*
+  - *Eg: Average sales value of a car in February is say $8,00,000. Populate the number of cars sold above this price for Feb*
+|----------+---|
+| January  |   |
+| February |   |
+| March    |   |
+| April    |   |
+| May      |   |
+|----------+---|
+
++ Endpoint: =//monthwise-bargraph=
++ Method: =GET=
++ Query parameter: ex: =?color=White=
++ Sample Response: 
+#+begin_src js
+  {
+      "status": 200,
+      "data": {
+          "Mar": {
+              "monthSalesAboveAverage": 44
+          },
+          "Feb": {
+              "monthSalesAboveAverage": 40
+          },
+          "Apr": {
+              "monthSalesAboveAverage": 72
+          },
+          "May": {
+              "monthSalesAboveAverage": 63
+          },
+          "Jan": {
+              "monthSalesAboveAverage": 52
+          }
+      }
+  }
+#+end_src
+** Problem 4
++ Statement:
+  - *City wise sales trend for Maruti Suzuki Cars from January to May*
+  - Example:
+|----------+-------+--------+--------+-----------+--------+-----|
+|          | Jammu | Bhopal | Mumbai | Hyderabad | Nagpur | ... |
+|----------+-------+--------+--------+-----------+--------+-----|
+| January  |       |        |        |           |        |     |
+| February |       |        |        |           |        |     |
+| March    |       |        |        |           |        |     |
+| ...      |       |        |        |           |        |     |
+| ...      |       |        |        |           |        |     |
+|----------+-------+--------+--------+-----------+--------+-----|
+
++ Endpoint: =/citywise-trend=
++ Method: =GET=
++ Query parameter: ex: =?company=Maruti-Suzuki=
++ Sample Response: 
+#+begin_src js
+  {
+      "status": 200,
+      "data": [
+          {
+              "month": "Mar",
+              "locationWiseTotalSales": {
+                  "Mumbai": 51,
+                  "Delhi": 61,
+                  "Nagpur": 57,
+                  "Bhopal": 50,
+                  "Bangalore": 33,
+                  "Secunderabad": 39
+              }
+          },
+          {
+              "month": "Feb",
+              "locationWiseTotalSales": {
+                  "Bangalore": 199,
+                  "Secunderabad": 115,
+                  "Nagpur": 42,
+                  "Jammu": 25,
+                  "Delhi": 144,
+                  "Srinagar": 74,
+                  "Lucknow": 75,
+                  "Hyderabad": 90,
+                  "Bhopal": 88,
+                  "Mumbai": 4
+              }
+          },
+          {
+              "month": "Jan",
+              "locationWiseTotalSales": {
+                  "Bhopal": 59,
+                  "Mumbai": 33,
+                  "Hyderabad": 156,
+                  "Nagpur": 125,
+                  "Secunderabad": 128,
+                  "Lucknow": 116,
+                  "Delhi": 77,
+                  "Jammu": 53,
+                  "Bangalore": 98,
+                  "Srinagar": 9
+              }
+          }
+      ]
+  }
+#+end_src
+
