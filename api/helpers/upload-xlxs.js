@@ -1,8 +1,9 @@
-module.exports = {
-  friendlyName: "Populate database",
+const { excelDateToJSDate } = require("../utils/excel-date-to-js-date.js");
 
-  description:
-    "Read each sheet in XLXS file and populate into respective models",
+module.exports = {
+  friendlyName: "Upload xlxs",
+
+  description: "",
 
   inputs: {
     fd: {
@@ -54,7 +55,7 @@ module.exports = {
                 totalPrice = price * rows[i][5];
                 await SalesData.create({
                   serialNo: rows[i][0],
-                  date: ExcelDateToJSDate(rows[i][1]),
+                  date: excelDateToJSDate(rows[i][1]),
                   city: rows[i][2].trim(),
                   car: rows[i][3].trim(),
                   color: rows[i][4].trim(),
@@ -102,36 +103,6 @@ module.exports = {
         }
       }
     );
-    Promise.all([importCars, importSales, importSalesData, importZones]).then(
-      () => {
-        return exits.success(true);
-      }
-    );
+    return true;
   }
-};
-
-const ExcelDateToJSDate = (serial) => {
-  const utcDays = Math.floor(serial - 25569);
-  const utcValue = utcDays * 86400;
-  const dateInfo = new Date(utcValue * 1000);
-
-  const fractionalDay = serial - Math.floor(serial) + 0.0000001;
-
-  const totalSeconds = Math.floor(86400 * fractionalDay);
-
-  const seconds = totalSeconds % 60;
-
-  totalSeconds -= seconds;
-
-  const hours = Math.floor(totalSeconds / (60 * 60));
-  const minutes = Math.floor(totalSeconds / 60) % 60;
-
-  return new Date(
-    dateInfo.getFullYear(),
-    dateInfo.getMonth(),
-    dateInfo.getDate(),
-    hours,
-    minutes,
-    seconds
-  );
 };
