@@ -110,28 +110,28 @@ module.exports = {
   }
 };
 
-function ExcelDateToJSDate(serial) {
-  var utc_days = Math.floor(serial - 25569);
-  var utc_value = utc_days * 86400;
-  var date_info = new Date(utc_value * 1000);
+const ExcelDateToJSDate = (serial) => {
+  const utcDays = Math.floor(serial - 25569);
+  const utcValue = utcDays * 86400;
+  const dateInfo = new Date(utcValue * 1000);
 
-  var fractional_day = serial - Math.floor(serial) + 0.0000001;
+  const fractionalDay = serial - Math.floor(serial) + 0.0000001;
 
-  var total_seconds = Math.floor(86400 * fractional_day);
+  const totalSeconds = Math.floor(86400 * fractionalDay);
 
-  var seconds = total_seconds % 60;
+  const seconds = totalSeconds % 60;
 
-  total_seconds -= seconds;
+  totalSeconds -= seconds;
 
-  var hours = Math.floor(total_seconds / (60 * 60));
-  var minutes = Math.floor(total_seconds / 60) % 60;
+  const hours = Math.floor(totalSeconds / (60 * 60));
+  const minutes = Math.floor(totalSeconds / 60) % 60;
 
   return new Date(
-    date_info.getFullYear(),
-    date_info.getMonth(),
-    date_info.getDate(),
+    dateInfo.getFullYear(),
+    dateInfo.getMonth(),
+    dateInfo.getDate(),
     hours,
     minutes,
     seconds
   );
-}
+};
